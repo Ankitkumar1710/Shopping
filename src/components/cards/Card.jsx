@@ -19,8 +19,8 @@ const Card = ({ product, addItem, removeItem, addedItems }) => {
         <p>{product.description}</p>
       </div>
       <div className="card-price-add">
-        <span>Price : ${product.price}</span>
-        <button
+        <span>Price : ${product.priceBox}</span>
+        {/* <button
           className={isAdded ? "add-item-btn" : "remove-item-btn"}
           onClick={() => {
             isAdded ? addItem(product) : removeItem(product);
@@ -28,7 +28,7 @@ const Card = ({ product, addItem, removeItem, addedItems }) => {
           }}
         >
           {isAdded ? "ADD " : "CANCLE"}
-        </button>
+        </button> */}
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Header from "./components/header/Header";
 import Search from "./components/search/Search";
-import AddProducts from "./components/addproducts/AddProducts";
-import CardBody from "./components/cards/CardBody";
-import Button from "./components/button/Button";
 
+import CardBody from "./components/cards/CardBody";
 import "./App.css";
+import Slider from "./components/header/Header";
+
 const App = () => {
   const [items, setItem] = useState([]);
   const [searchValue, setSearchValue] = useState("");
@@ -13,7 +13,9 @@ const App = () => {
   const [showAddProducts, setShowAddProducts] = useState(false);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products/")
+    
+    fetch("https://www.jebelz.com/ae_en/search/ajax/suggest/?q=coffee&_=1677667865353")
+    // https://fakestoreapi.com/products/
       .then((res) => res.json())
       .then((data) => setItem(data));
     console.count("hi");
@@ -37,38 +39,44 @@ const App = () => {
     // console.log(addedItems);
   }
   return (
+    <>
+
+
+    
     <div>
       {/* <Header /> */}
-
-      <div className="body__container">
+   <div className="body__container">
         <div className="nav">
-          <Header />
+          {/* <Header /> */}
           <div className="nav-right">
             <Search
               products={items}
               value={searchValue}
               onChangeData={changingSrarchData}
             />
-            <Button num={addedItems.length} click={setShowAddProducts} />
+            {/* <Button num={addedItems.length} click={setShowAddProducts} /> */}
           </div>
         </div>
-
-        {showAddProducts && (
+        <Slider/>
+        {/* {showAddProducts && (
           <AddProducts
             click={setShowAddProducts}
             items={addedItems}
             removeItem={removeItem}
             setAddedItem={setAddedItem}
           />
-        )}
+        )} */}
+        
         <CardBody
           products={itmesFilter}
           addItem={addItem}
           removeItem={removeItem}
           addedItems={addedItems}
         />
+        <Slider/>
       </div>
     </div>
+    </>
   );
 };
 
