@@ -13,9 +13,7 @@ const App = () => {
   const [showAddProducts, setShowAddProducts] = useState(false);
 
   useEffect(() => {
-    
     fetch("https://www.jebelz.com/ae_en/search/ajax/suggest/?q=coffee&_=1677667865353")
-    // https://fakestoreapi.com/products/
       .then((res) => res.json())
       .then((data) => setItem(data));
     console.count("hi");
@@ -32,41 +30,24 @@ const App = () => {
     const itemArr = addedItems;
     setAddedItem([...itemArr, item]);
   }
-  // console.log(addedItems);
   function removeItem(item) {
     const newItems = addedItems.filter((addedItem) => addedItem.id !== item.id);
     setAddedItem(newItems);
-    // console.log(addedItems);
   }
   return (
     <>
-
-
-    
     <div>
-      {/* <Header /> */}
    <div className="body__container">
         <div className="nav">
-          {/* <Header /> */}
           <div className="nav-right">
             <Search
               products={items}
               value={searchValue}
               onChangeData={changingSrarchData}
             />
-            {/* <Button num={addedItems.length} click={setShowAddProducts} /> */}
           </div>
         </div>
         <Slider/>
-        {/* {showAddProducts && (
-          <AddProducts
-            click={setShowAddProducts}
-            items={addedItems}
-            removeItem={removeItem}
-            setAddedItem={setAddedItem}
-          />
-        )} */}
-        
         <CardBody
           products={itmesFilter}
           addItem={addItem}
